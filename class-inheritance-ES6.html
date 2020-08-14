@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		
+		// Creating Baseclass
+		class UserBase {
+			
+			constructor(name, email, age){
+				this._name = name;
+				this._email = email;
+				this._age = age;
+			}
+			showName() {
+				console.log(this._name);
+			}
+			showAge() {
+				console.log(this._age);
+			}
+			showEmail() {
+				console.log(this._email);
+			}
+			showProfile(){
+				this.showName();
+				this.showEmail();
+				this.showAge();
+			}
+
+		}
+
+		class Developer extends UserBase {
+			constructor(name, age, email, profession){
+				super(name, age, email);
+				this._profession = profession;
+				// super._name = 'Raza Updated';
+			}
+
+			showProfession(){
+				console.log(this._profession);
+			}
+			/*
+			showName(){
+				console.log(this._name);
+			}
+			*/
+			showProfile(){
+				super.showProfile();
+				this.showProfession();
+			}
+		}
+
+		let itUser = new Developer('Raza', 'aligcs324@gmail.com', '24', 'PHP/WordPress');
+
+		itUser.showProfile();
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

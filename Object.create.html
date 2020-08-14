@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object.create Function</title>
+	<script type="text/javascript">
+		let personProto = {
+			getAge : function () {
+				console.log( 2017 - this.yearOfBirth ); // 29-December-2017
+			}
+		}
+		let ali = Object.create(personProto);
+		ali.name = "Ali Raza";
+		ali.job = "PHP/WP";
+		ali.yearOfBirth = 1992;
+
+		let asif = Object.create(personProto, {
+			name: { value: 'Asif'},
+			job: { value: 'CEO'},
+			yearOfBirth: { value: 1990},
+		});
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

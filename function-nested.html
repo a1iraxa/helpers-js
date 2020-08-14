@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		
+		function doProcess (a, b){
+			
+			function sum() {
+				alert("Sum: "+ (a + b));
+			}
+
+			function diff() {
+				alert("Diff: " + (a - b));
+			}
+
+			function multi() {
+				alert("Multi: "+ (a * b));
+			}
+			sum();
+			diff();
+			multi();
+
+		}
+
+	</script>
+</head>
+<body>
+<h2>Nested Functions</h2>
+
+<input type="button" name="test" value="Do Process" onclick="doProcess(30, 20)">
+
+</body>
+</html>

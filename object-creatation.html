@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		var oEmp1 = new Array();
+		oEmp1.no = 01;
+		oEmp1.name = 'Foo';
+		oEmp1.sal = 1000;
+		oEmp1.deptt = 'Java in Foo';
+		alert(oEmp1.deptt);
+
+		var oEmp2 = {};
+		oEmp2.no = 02;
+		oEmp2.name = 'Bar';
+		oEmp2.sal = 2000;
+		oEmp2.deptt = 'Java in Bar';
+		alert(oEmp2.deptt);
+
+		var oEmp3 = {
+			no: 03,
+			name: 'FooBar',
+			sal: 3000,
+			deptt: 'Java in FooBar'
+		};
+		alert(oEmp3.deptt);
+
+		alert(Object.keys(oEmp1));
+		alert(Object.values(oEmp1));
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>
+

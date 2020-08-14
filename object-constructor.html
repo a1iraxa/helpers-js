@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		function Emp(vEmpno, vEmpname, vEmpsal, vEmpdeptt ) {
+			this.vEmpno = vEmpno;
+			this.vEmpname = vEmpname;
+			this.vEmpsal = vEmpsal;
+			this.vEmpdeptt = vEmpdeptt;
+		}
+		oEmp = new Emp(01, 'Foo', 2000, 'Bar');
+		// alert(oEmp.vEmpno);
+
+		for(var k in oEmp) {
+			// alert("Key: " + k + "= " + oEmp[k]);
+		}
+		function showEmp(o) {
+			with(o) {
+				alert(vEmpno.toString());
+				alert(vEmpname.toString());
+				alert(vEmpsal.toString());
+				alert(vEmpdeptt.toString());
+			}
+		}
+		showEmp(oEmp);
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>

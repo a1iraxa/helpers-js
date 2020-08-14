@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Array Functions</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    let users = [{ name: 'ali', age: 27 }, { name: 'foo', age: 37 }, { name: 'bar', age: 19 }, { name: 'baz', age: 30 }, ];
+
+    // Normal method
+    users.sort((a, b) => {
+        if (a.age > b.age) { return -1 }
+
+        if (b.age > a.age) { return 1 }
+
+        return 0
+    });
+    console.log('Normal method objects array Sort: ', users);
+
+    // Advance method
+    users.sort((a, b) => {
+        return b.age - a.age;
+    });
+
+    console.log('Advanced method objects array Sort: ', users);
+    const scores = [25, 351, 1, 0, 34, 48, 64, 94416, 48, 461, 1561, 3056, 1];
+
+    function sort_acending(arr_data) {
+        return arr_data.sort((a, b) => a - b);
+    }
+
+    function sort_decending(arr_data) {
+        return arr_data.sort((a, b) => b - a);
+    }
+
+    console.log("Unsorted: ", scores);
+    console.log('Sorted Acending: ', sort_acending(scores));
+    console.log('Sorted Decending: ', sort_decending(scores));
+
+    // MAP
+    let updated_users = users.map(user => {
+        if (user.age > 29) {
+            return { name: user.name, age: user.age + 10, status: 'updated' }
+        }
+        return user;
+    });
+    console.log("Using Map: ", updated_users);
+
+    // FILTER
+    let filtered_users = users.filter(user => {
+        if (user.age > 25) {
+            return true;
+        }
+    });
+    console.log("Using Filter: ", filtered_users);
+
+    // FILTER
+    let reduceded_users = users.reduce((acc, user) => {
+        if (user.age > 25) {
+            acc++;
+        }
+        return acc;
+    }, 0);
+    console.log("Using Reduce: ", reduceded_users);
+    </script>
+</body>
+
+</html>

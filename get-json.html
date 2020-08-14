@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Get Json</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        // Creating Baseclass
+        class SearchResult {
+
+            constructor(url) {
+                this._url = url;
+                self = this;
+            }
+            getResults() {
+                $.getJSON(this._url, function(results) {
+                    $('.results').html(`
+
+							${ results.length ? '<ul>' : '<p>No general information matches that search.</p>'}
+
+								${ results.map(post => `<li><h4>ID: ${post.id} ${post.title}</h4></li>`).join('') }
+
+							${ results.length ? '</ul>' : '<p>No general information matches that search.</p>'}
+
+						`);
+
+                });
+            }
+            getResultsArrowFun = () => {
+                console.log('getResultsArrowFun');
+                $.getJSON(this._url, function(results) {
+                    $('.results').html(`
+
+							${ results.length ? '<ul>' : '<p>No general information matches that search.</p>'}
+
+								${ results.map(post => `<li><h4>ID: ${post.id} ${post.title}</h4></li>`).join('') }
+
+							${ results.length ? '</ul>' : '<p>No general information matches that search.</p>'}
+
+						`);
+
+                });
+            }
+
+        }
+        search = new SearchResult('https://jsonplaceholder.typicode.com/posts');
+        // search.getResults();
+        search.getResultsArrowFun();
+    });
+    </script>
+</head>
+
+<body>
+    <div class="results"></div>
+</body>
+
+</html>

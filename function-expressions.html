@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		f1 = function () {
+			console.log('This is message');
+		}
+		f2 = function (a, b) {
+			console.log(a + b);
+		}
+		f3 = function (){
+			s = 0;
+			for (var i = 0; i < arguments.length; i++) {
+				s += arguments[i];
+			}
+
+			return s;
+		}
+		
+
+	</script>
+</head>
+<body>
+
+<input type="button" name="test" onclick="f1()" value="Show Message" />
+<input type="button" name="test" onclick="f2(20, 30)" value="Show Sum" />
+<input type="button" name="test" onclick="console.log( f3(20, 30, 30, 20) )" value="Show All" />
+</body>
+</html>

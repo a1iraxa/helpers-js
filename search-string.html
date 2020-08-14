@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>String Search</title>
+	<script type="text/javascript">
+        "use strict"
+
+
+        const lineBreak = () => {
+            console.log("=====================================================================================");
+        }
+
+        const findString = () => {
+            const log = console.log;
+            let text = "5 ways to find a strig for a string!";
+
+            // indexOf
+            log();
+            log("Using indexOf:");
+            log(text.indexOf("way"));
+            log(text.indexOf("finding"));
+            lineBreak();
+
+            // search
+            log();
+            log("Using search:");
+            log(text.search(/way/));
+            log(text.search(/finding/));
+            lineBreak();
+
+            // match
+            log();
+            log("Using match:");
+            log(text.match(/way/));
+            log(text.match(/finding/));
+            lineBreak();
+
+            // includes
+            log();
+            log("Using includes:");
+            log(text.includes("way"));
+            log(text.includes("finding"));
+            lineBreak();
+
+            // test
+            log();
+            log("Using test:");
+            log(/way/.test(text));
+            log(/finding/.test(text));
+            lineBreak();
+        }
+
+        findString();
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

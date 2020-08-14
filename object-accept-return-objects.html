@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		var Emp = function () {
+			this.Name = '';
+			this.Sal = '';
+
+			this.setEmployee = function (obj) {
+				this.Name = obj.Name;
+				this.Sal = obj.Sal;
+			}
+
+			this.getAnnualSal = function () {
+				return this.Sal * 12;
+			},
+
+			this.getQuarterSal = function () {
+				return this.Sal * 3;
+			}
+			this.getDetailsOFEmployee = function () {
+				// Returning an object
+				return { 
+					Name: this.Name,
+					Sal: this.Sal,
+					Quarter: this.getQuarterSal(),
+					Annual: this.getAnnualSal(),
+				}
+			}
+		}
+		oEmp1 = new Emp(); // Creating 1st object
+		oEmp1.Name = "Foo"; // Assigning Name Property
+		oEmp1.Sal = 2000; // Assigning Sal Property
+
+		oEmp2 = new Emp(); // Creating 2nd object
+		oEmp2.setEmployee(oEmp1); // Passing oEmp1 object as an param
+		// alert(oEmp2.Name);
+		var empDetails = oEmp2.getDetailsOFEmployee();
+		alert(empDetails.Quarter);
+
+
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>

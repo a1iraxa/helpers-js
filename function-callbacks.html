@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		
+		function doProcess (a, b, action){
+			console.log("Action is: " + action);
+
+			action(a, b);
+		}
+
+		function sum(a, b) {
+			alert(a + b);
+		}
+		function diff(a, b) {
+			alert(a - b);
+		}
+		function multi(a, b) {
+			alert(a * b);
+		}
+
+		function _this_is_callback(a, b) {
+			console.log('This is callback function');
+			console.log( a + b );
+		}
+
+	</script>
+</head>
+<body>
+
+<input type="button" name="test" onclick="doProcess(20, 15, _this_is_callback)" value="Show Sum and then callback function" />
+
+<input type="button" name="test" onclick="doProcess(20, 15, sum)" value="Show Sum" />
+
+<input type="button" name="test" onclick="doProcess(20, 15, diff)" value="Show Differce" />
+<input type="button" name="test" onclick="doProcess(20, 15, multi)" value="Show Multiplied" />
+
+</body>
+</html>

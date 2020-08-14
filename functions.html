@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		function showMessage() {
+			console.log('This is message');
+		}
+		function showSum(a, b) {
+			console.log(a + b);
+		}
+		function sumAll(){
+			s = 0;
+			for (var i = 0; i < arguments.length; i++) {
+				s += arguments[i];
+			}
+
+			return s;
+		}
+
+	</script>
+</head>
+<body>
+
+<input type="button" name="test" onclick="showMessage()" value="Show Message" />
+<input type="button" name="test" onclick="showSum(20, 30)" value="Show Sum" />
+<input type="button" name="test" onclick="console.log( sumAll(20, 30, 30, 20) )" value="Show All" />
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		
+		var dwightSalary = (function() {
+		    var salary = 60000;
+		    function changeBy(amount) {
+		        salary += amount;
+		    }
+		    return {
+		        raise: function() {
+		            changeBy(5000);
+		        },
+		        lower: function() {
+		            changeBy(-5000);
+		        },
+		        currentAmount: function() {
+		            return salary;
+		        }
+		    }; 
+		})();
+
+		console.log(dwightSalary.currentAmount()); // $60,000
+		dwightSalary.raise();
+		console.log(dwightSalary.currentAmount()); // $65,000
+		dwightSalary.lower();
+		dwightSalary.lower();
+		console.log(dwightSalary.currentAmount()); // $55,000
+
+		dwightSalary.changeBy(10000) // TypeError: undefined is not a function
+
+		function doProcess (param){
+			
+			function add(inner_param) {
+				return param + inner_param;
+			}
+
+			return add;
+
+		}
+		var add = doProcess(3);
+		console.dir( add );
+		console.log( add(7) );
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>

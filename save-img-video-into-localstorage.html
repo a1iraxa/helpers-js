@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Save Image into Local Storage</title>
+</head>
+
+<body>
+    <input type="file" name="profile" id="profile-photo">
+    <video width="0" id="demo-video" class="demo-video" autoplay controls></video>
+    <div class="img-priview" id="img-priview"></div>
+    <script type="text/javascript">
+    (function() {
+
+        const add_height_width = (ele) => {
+            ele.style.height = '300px';
+            ele.style.width = '300px';
+        }
+
+        const img_preview = document.querySelector('.img-priview');
+
+        const video_preview = document.querySelector('.demo-video');
+
+        let img_exists = localStorage.getItem('profile-img');
+
+        if (img_exists) {
+
+            add_height_width(img_preview);
+
+            img_preview.style.backgroundImage = `url(${img_exists})`;
+        }
+
+        let video_exists = localStorage.getItem('demo-video');
+
+        if (video_exists) {
+
+            add_height_width(video_preview);
+
+            video_preview.src = video_exists;
+        }
+
+        document.querySelector('#profile-photo').addEventListener('change', function(e) {
+
+            // Check if is image file
+            var imageExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+            if (imageExtensions.exec(this.files[0].name)) {
+
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function() {
+
+                    img_preview.style.backgroundImage = `url(${reader.result})`;
+
+                    add_height_width(img_preview);
+
+                    localStorage.setItem('profile-img', reader.result);
+                });
+
+                reader.readAsDataURL(this.files[0]);
+            } else {
+
+                let blobURL = URL.createObjectURL(this.files[0]);
+
+                document.querySelector(".demo-video").src = blobURL;
+
+                localStorage.setItem('demo-video', blobURL);
+
+                add_height_width(video_preview);
+
+            }
+        });
+
+    })()
+    </script>
+</body>
+
+</html>

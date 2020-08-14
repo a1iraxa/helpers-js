@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Functions</title>
+    <script type="text/javascript">
+    let add = function(a, b) {
+        return new Promise(function(resolve, reject) {
+            console.log('Adding...');
+            result = a + b;
+            if (result > 0) {
+                console.log('Addition is done.');
+                resolve(result);
+            } else {
+                console.log('Addition is failed.');
+                reject(result);
+            }
+        })
+    }
+
+    let multi = function(result) {
+        return new Promise(function(resolve, reject) {
+
+            console.log('Checking...');
+            console.log('Addition is: ' + result);
+
+            if (result > 0) {
+                console.log('Multiplication is done.');
+                resolve(result * result);
+            } else {
+                console.log('Multiplication is failed.');
+                reject(result * result);
+            }
+            console.log('Multiplying...');
+        })
+    }
+
+
+    add(15, 5)
+        .then(function(result) {
+            return multi(result);
+        }).then(function(result) {
+            console.log(result);
+        }).catch(reason => {
+            console.log('Something went wrong ', result);
+        })
+
+    // Promise.all([add(), multi(result)]).then(function () {
+    // 	console.log('All Done');
+    // })
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

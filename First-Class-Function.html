@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Class Functions</title>
+	<script type="text/javascript">
+		let birthYears = [1992, 1989, 1980, 1900, 2000];
+
+		function getResult(birthYears, type) {
+			let response_array = [];
+			for (var i = 0; i < birthYears.length; i++) {
+				response_array.push( type( birthYears[i] ) );
+			}
+			return response_array;
+		}
+
+		// calculate age
+		function age(year) {
+			return 2017 - year;
+		}
+
+		// calculate heart beat
+		function heartRate(year) {
+			return Math.round( 207 - (0.7 * year) );
+		}
+
+		ages = getResult(birthYears, age);
+		console.log(ages);
+
+		heartRates = getResult(ages, heartRate);
+		console.log(heartRates);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <button class="btn" onclick="showArray()">Show Array</button>
+    <div id="result"></div>
+    <table>
+        <tr>
+            <td>Enter Value:</td>
+            <td><input type="text" name="newValue" id="newValue" onkeyup="addItemToExistingList(event)"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" name="newValue" value="Add" onclick="addItemToExistingList(event)"></td>
+        </tr>
+    </table>
+    <hr>
+    <div id="itemsCount"></div>
+    <div id="itemsShow"></div>
+    <script type="text/javascript">
+    var content_array = Array();
+    content_array[0] = 'One';
+    content_array[1] = 'Two';
+    content_array[2] = 'Three';
+    content_array[3] = 'Four';
+
+    function showArray() {
+
+        total = content_array.length;
+
+        var result_div = document.getElementById("result");
+        heading = document.createElement('h2');
+        heading.innerHTML = "Total Elements are: " + total;
+        result_div.appendChild(heading);
+
+        // for(key in content_array) {
+        // 	new_div = document.createElement('div');
+        // 	new_div.innerHTML = "Item " + (key + 1) + " of " + total.toString() + " is '" + content_array[key] + "'";
+        // 	// new_div.innerHTML = content_array[key];
+        // 	result_div.appendChild(new_div);
+        // }
+
+        for (var i = 0; i < total; i++) {
+
+            new_div = document.createElement('div');
+            new_div.innerHTML = "Item " + (i + 1).toString() + " of " + total.toString() + " is '" + content_array[i] + "'";
+            result_div.appendChild(new_div);
+        }
+    }
+
+    list = [];
+
+    function addItemToExistingList(e) {
+        if ('keyup' === e.type) {
+            if (13 != e.keyCode) {
+                return true;
+            }
+        }
+        const textEl = document.getElementById('newValue');
+        if ('' === textEl.value) {
+            console.log('Empty not allowd');
+            return false;
+        }
+        noOfItems = list.length;
+
+        list[noOfItems] = textEl.value;
+        displayItems();
+        textEl.value = '';
+        textEl.focus();
+    }
+
+    function displayItems() {
+        n = list.length;
+        document.getElementById('itemsCount').innerHTML = "No. of items added " + n.toString();
+        ItemListDiv = document.getElementById('itemsShow');
+        while (ItemListDiv.hasChildNodes()) {
+
+            ItemListDiv.removeChild(ItemListDiv.lastChild);
+
+        }
+        for (var i = 0; i < list.length; i++) {
+            new_div = document.createElement("div");
+            new_div.innerHTML = "Item " + (i + 1) + " of " + list.length.toString() + " is " + list[i];
+            ItemListDiv.appendChild(new_div);
+
+        }
+
+
+    }
+    </script>
+</body>
+
+</html>

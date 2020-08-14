@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ES6 Map | Collection</title>
+	<script type="text/javascript">
+        "use strict"
+
+        let collection = new Map();
+
+        collection.set('height', '200');
+        collection.set('width', '500');
+        collection.set('length', '700');
+
+        console.log(collection.get('height'));
+        console.log(collection.size);
+        // collection.delete('length');
+        console.log(collection.size);
+        // collection.clear();
+        console.log(collection.size);
+
+        console.log(collection.keys());
+        console.log(collection.values());
+
+        for ( let obj of collection){
+            console.log(obj)
+        }
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

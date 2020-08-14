@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Functions</title>
+    <script type="text/javascript">
+    // Creating Baseclass
+    // Class by Constructor, Constructor name must start with capital letter
+    var Job = function() {
+        this.Status = true;
+    }
+
+    // Prototype methods
+    Job.prototype.print = function() {
+        console.log(this.Title + (this.Status ? " Job is Done" : " Job is Pending"));
+    }
+
+    // Create subclass by using call() method on baseclass 'Job' object
+    var Check = function(title, status) {
+
+        // Inheriting all properties and methods
+        Job.call(this);
+
+        this.Title = title;
+        this.Status = status;
+
+    }
+
+    // Inheriting prototype methods and properties into child class from baseclass
+    Check.prototype = Object.create(Job.prototype);
+
+    // Setting child class constructor
+    Check.prototype.constructor = Check;
+
+    var check = new Check('Designing', true);
+    check.print();
+
+    var check = new Check('Front-End', false);
+    check.print();
+    var xyz = {};
+    console.dir(xyz);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

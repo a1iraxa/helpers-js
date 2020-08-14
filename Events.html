@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Delegation, Propogation, Bublling</title>
+</head>
+<style>
+    .red-text{color: red;}
+    .blue-text{color: blue;}
+    .large-text{ font-size: 22px;}
+</style>
+<body>
+
+    <div class="bullets">
+        <ul>
+            <li id="bullet-1">ONe</li>
+            <li id="bullet-2">Two</li>
+            <li id="bullet-3">Three</li>
+            <li id="bullet-4">Four</li>
+            <li id="bullet-5">Five</li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        "use strict"
+
+        document.querySelector('.bullets').addEventListener('click', function (event) {
+            if (event.target.getAttribute('id') === 'bullet-2') {
+                event.target.classList.toggle('blue-text');
+            }else {
+                event.target.classList.toggle('red-text');
+            }
+        });
+
+        document.querySelector('#bullet-4').addEventListener('click', event => {
+            event.target.classList.toggle('large-text');
+        });
+
+        document.querySelector('#bullet-3').addEventListener('click', event => {
+            event.stopPropagation(); // stoping event propagation
+            event.target.classList.toggle('large-text');
+        });
+
+	</script>
+
+</body>
+</html>

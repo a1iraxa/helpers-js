@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		
+		// Attach one external function with multiple objects
+		function addToThis(param, param2) {
+			return this.age + param + param2;
+		}
+		var obj = {Name: 'Foo', age: 20}
+		var obj1 = {Name: 'Bar', age: 10}
+
+		// console.log(addToThis.call(obj, 20, 10)); // Attaching addToThis() with obj by using call method
+		// console.log(addToThis.call(obj1, 20, 20)); // Attaching addToThis() with obj1 by using call method
+		// console.log(addToThis.apply(obj, [10, 20])); // args passed by An Array
+		var getNewObj = addToThis.bind(obj) // Attach method with given object, and will return object with method
+		console.log(getNewObj(10, 20));
+		
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>

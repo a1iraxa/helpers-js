@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		
+		function doProcess (a, b){
+			
+			function sum() {
+				alert("Sum: "+ (a + b));
+			}
+
+			function diff() {
+				alert("Diff: " + (a - b));
+			}
+
+			function multi() {
+				alert("Multi: "+ (a * b));
+			}
+			sum(); // executing only first time
+			diff(); // executing only first time
+			doProcess = multi; // assigning child function to parent with 
+							  // same parameter name like parent function name, PS: not using () for prevent executation
+
+		}
+		doProcess(30, 10); // First time will show sum and diff
+		// doProcess(50, 10); // Now will show only multiply
+		// doProcess(20, 10); // Now will show only multiply
+		// doProcess(10, 10); // Now will show only multiply
+
+	</script>
+</head>
+<body>
+<h2>Returning a function from function</h2>
+
+</body>
+</html>

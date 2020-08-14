@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Primitives-Objects</title>
+	<script type="text/javascript">
+		// Primitives 
+		let a = 26;
+		let b = a;
+		a = 30;
+		console.log(a); // Holde their own data
+		console.log(b); // Holde their own data
+
+		// Objects
+		let obj = {
+			name: "Ali",
+			age: 24,
+		}
+		let obj_copy = obj;
+
+		obj.name = 'Raza'; // Object variables do not hold own value, they use references
+		console.log(obj); 
+		console.log(obj_copy);
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

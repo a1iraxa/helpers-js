@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoization</title>
+</head>
+<body>
+    <script>
+        function square(n) {
+            console.time("concatenation");
+            let result = 0;
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                    result +=1
+                }
+            }
+            console.timeEnd("concatenation");
+            return result;
+        }
+        // console.log(square(60012))
+        // console.log(square(60012))
+        // console.log(square(60012))
+        // console.log(square(60012))
+        // console.log(square(60012))
+        // console.log(square(60012))
+
+        let prevWithMemoizationResult = [];
+        function squareWithMemoization(n) {
+            if (prevWithMemoizationResult[n] != null) {
+                return prevWithMemoizationResult[n];
+            }
+            console.time("concatenation");
+            let result = 0;
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                    result +=1
+                }
+            }
+            prevWithMemoizationResult[n] = result;
+            console.timeEnd("concatenation");
+            return result;
+        }
+        // console.log(squareWithMemoization('squareWithMemoization:', 60012))
+        // console.log(squareWithMemoization('squareWithMemoization:', 60012))
+        // console.log(squareWithMemoization('squareWithMemoization:', 60012))
+        // console.log(squareWithMemoization('squareWithMemoization:', 60012))
+        // console.log(squareWithMemoization('squareWithMemoization:', 60012))
+        // console.log(squareWithMemoization('squareWithMemoization:', 60012))
+
+        function fib(n) {
+
+            if (n <= 2) {
+                return 1
+            }else {
+                return fib( n - 1) + fib( n - 1)
+            }
+        }
+        // console.log(fib(31))
+
+
+        function fibWithMemoization(n, prevValues=[]) {
+
+            if (prevValues[n] != null) {
+                return prevValues[n];
+            }
+            let result;
+
+            if (n <= 2) {
+                result = 1
+            }else {
+                result = fibWithMemoization( n - 1, prevValues) + fibWithMemoization( n - 1, prevValues)
+            }
+
+            prevValues[n] = result;
+            return result;
+        }
+        // console.log('fibWithMemoization', fibWithMemoization(31))
+
+    </script>
+</body>
+</html>

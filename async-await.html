@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Async Await</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    const getToDos = async (url) => {
+        const response = await fetch(url);
+
+        if (response.status !== 200) {
+            throw new Error('Unable to fetch data');
+        }
+
+        const data = await response.json();
+        return data;
+
+    }
+    console.log(1);
+    console.log(2);
+
+    getToDos('https://jsonplaceholder.typicode.com/todos/1')
+        .then((data) => { console.log(data) })
+        .catch((err) => { console.log(err) });
+
+    console.log(3);
+    console.log(4);
+
+    async function asyncExample() {
+        let promise_wait = new Promise( (resolve, reject) => {
+            setTimeout(() => {
+                resolve('done!');
+            }, 10000);
+        });
+
+        let result = await promise_wait;
+        console.log(result);
+    }
+    asyncExample();
+    </script>
+</body>
+
+</html>

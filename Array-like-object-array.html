@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array Like Object Array</title>
+</head>
+<body>
+
+    <ul>
+        <li>ONe</li>
+        <li>Two</li>
+        <li>Three</li>
+        <li>Four</li>
+        <li>Five</li>
+    </ul>
+
+    <script type="text/javascript">
+        "use strict"
+        let li = document.querySelectorAll('li');
+
+        console.log(li.length);
+
+        console.log(li);
+        // console.log(typeof li);
+        // console.log(li[0]);
+
+        let li_array = Array.from(li);
+
+        console.log(li_array);
+        // console.log(typeof li_array);
+        // console.log(li_array[0]);
+
+        // li.pop(); // not behave like array
+        li_array.pop();
+
+        li_array.forEach( ele => {
+            console.log(ele);
+        });
+
+
+
+	</script>
+
+</body>
+</html>

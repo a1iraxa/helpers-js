@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<script type="text/javascript">
+		function getAnnualSal() {
+			return this.Sal * 12;
+		}
+		// Using external methods in object
+		var oEmp = {
+			Name: "Foo",
+			Sal: 2000,
+			AnnualSal: getAnnualSal
+		}
+		// alert( oEmp.Name + " earns " + oEmp.AnnualSal() + " annually" );
+
+		// Using internal methods in object
+		var oEmp1 = {
+			Name: "Bar",
+			Sal: 1000,
+			AnnualSal: function () {
+				return this.Sal * 12;
+			},
+			QuarterSal: function () {
+				return this.Sal * 3;
+			}
+		}
+		// alert( oEmp1.Name + " earns " + oEmp1.AnnualSal() + " annually and "+ oEmp1.QuarterSal() + " quarterly" );
+
+		// By constructor method
+		var Emp = function (vname, vSal) {
+			this.Name = vname;
+			this.Sal = vSal;
+
+			this.getAnnualSal = function () {
+				return this.Sal * 12;
+			},
+
+			this.getQuarterSal = function () {
+				return this.Sal * 3;
+			}
+		}
+
+		var objEmp = new Emp("FooBar", 50000);
+		alert( "Annual Salary: " + objEmp.getAnnualSal() );
+		alert( "Quarter Salary: " + objEmp.getQuarterSal() );
+		// alert( objEmp.Name + " earns " + objEmp.getAnnualSal() + " annually and "+ objEmp.getQuarterSal() + " quarterly" );
+
+	</script>
+</head>
+<body>
+A- L- I- R- A- Z- A
+65-76-73-82-65-90-65
+
+</body>
+</html>
